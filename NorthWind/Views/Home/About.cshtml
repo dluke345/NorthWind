@@ -1,7 +1,30 @@
-﻿@{
-    ViewData["Title"] = "About";
+﻿@model IEnumerable<NorthWind.Models.NorthWIndViewModels.EmployeeDepartmentGroup>
+
+@{
+    ViewData["Title"] = "Employee's by Department";
 }
 <h2>@ViewData["Title"].</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<table>
+    <tr>
+        <th>
+            Department
+        </th>
+        <th>
+            Employee Count
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @item.EmployeeCount
+            </td>
+        </tr>
+
+    }
+</table>
